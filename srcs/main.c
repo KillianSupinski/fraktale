@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 18:13:37 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/06/04 14:01:34 by ksupinsk         ###   ########.fr       */
+/*   Created: 2025/05/25 08:45:56 by ksupinsk          #+#    #+#             */
+/*   Updated: 2025/06/23 14:49:30 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_fractol.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *))
+void	MLX_ERROR(t_data *data)
 {
-	t_list	*newlst;
-	t_list	*data;
+	ft_printf("Error");
+}
 
-	if (!lst || !f)
+
+
+int	main(int argc, char **argv)
+{
+	t_data *data;
+
+	if(argc > 2)
 		return (NULL);
-	newlst = NULL;
-	while (lst)
+	data->mlx = mlx_init();
+	if (data->mlx_ptr == NULL)
+		return (0);
+	data->win = mlx_new_window(mlx, 1080, 720, "OK MLX");
+	if (data->win == NULL)
 	{
-		data = ft_lstnew(f(lst->content));
-		if (!data)
-		{
-			ft_lstclear(&newlst);
-			return (NULL);
-		}
-		ft_lstadd_back(&newlst, data);
-		lst = lst->next;
+		free(data->win);
+		return (0);
 	}
-	return (newlst);
+	mlx_pixel_put(mlx, win, 300, 100, 0xd9138a);
+	mlx_pixel_put(mlx, win, 540, 360, 0x79F8F8);
+	mlx_loop(mlx);
 }

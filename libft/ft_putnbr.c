@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/25 08:45:56 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/05/25 08:48:22 by ksupinsk         ###   ########.fr       */
+/*   Created: 2025/05/13 11:17:20 by ksupinsk          #+#    #+#             */
+/*   Updated: 2025/05/13 15:42:51 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fractol.h"
+#include "ft_printf.h"
 
-int	main()
+int	ft_putnbr(int nb)
 {
-	void *mlx  = mlx_init();
-	void *win  = mlx_new_window(mlx, 400, 200, "OK MLX");
+	int			count;
+	long int	n;
 
-	mlx_pixel_put(mlx, win, 200, 100, 0x00FF00);   // pixel vert au centre
-	mlx_loop(mlx);
+	n = (long int)nb;
+	count = 0;
+	if (n < 0)
+	{
+		ft_putchar('-');
+		count += 1;
+		n = -n;
+	}
+	if (n > 9)
+	{
+		count += ft_putnbr(n / 10);
+		count += ft_putnbr(n % 10);
+	}
+	else
+		count += ft_putchar(n + 48);
+	return (count);
 }

@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_fractol.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 18:13:37 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/05/12 11:44:01 by ksupinsk         ###   ########.fr       */
+/*   Created: 2025/05/24 05:55:45 by ksupinsk          #+#    #+#             */
+/*   Updated: 2025/06/23 14:51:36 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_FRACTOL_H
+# define FT_FRACTOL_H
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+# include <stdarg.h>
+# include <stddef.h>
+# include <stdint.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h> 
+# include <math.h>
+# include "libx/mlx.h"
+# include "libft/libft.h"
+
+typedef struct s_data
 {
-	t_list	*newlst;
-	t_list	*data;
+	void	*mlx;
+	void	*win;
+}				t_data;
 
-	if (!lst || !f || !del)
-		return (NULL);
-	newlst = NULL;
-	while (lst)
-	{
-		data = ft_lstnew(f(lst->content));
-		if (!data)
-		{
-			ft_lstclear(&newlst, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&newlst, data);
-		lst = lst->next;
-	}
-	return (newlst);
-}
+#endif

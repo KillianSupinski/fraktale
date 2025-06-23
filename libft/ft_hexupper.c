@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_hexupper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 16:43:41 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/05/06 17:34:04 by ksupinsk         ###   ########.fr       */
+/*   Created: 2025/05/13 14:20:55 by ksupinsk          #+#    #+#             */
+/*   Updated: 2025/05/13 15:41:21 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
-#include "libft.h"
-
-int	ft_lstsize(t_list *lst)
+int	ft_hexupper(unsigned int nb)
 {
-	int	i;
+	int		count;
+	char	*hex;
 
-	i = 0;
-	while (lst)
+	count = 0;
+	hex = "0123456789ABCDEF";
+	if (nb > 15)
 	{
-		lst = lst->next;
-		i++;
+		count += ft_hexupper(nb / 16);
+		count += ft_hexupper(nb % 16);
 	}
-	return (i);
+	else
+		count += ft_putchar(hex[nb]);
+	return (count);
 }

@@ -6,15 +6,15 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:32:07 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/05/06 14:32:09 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/06/18 10:29:31 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	nb;
-	int	n;
+	int		i;
+	long	nb;
+	int		n;
 
 	i = 0;
 	nb = 0;

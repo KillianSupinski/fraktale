@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_hexlower.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 16:48:11 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/05/06 17:35:23 by ksupinsk         ###   ########.fr       */
+/*   Created: 2025/05/13 13:17:04 by ksupinsk          #+#    #+#             */
+/*   Updated: 2025/05/13 15:41:27 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_hexlower(unsigned int nb)
 {
-	if (lst == NULL)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
-}
-/*
-int	main()
-{
-	t_list *lst;
+	int		count;
+	char	*hex;
 
-	lst = malloc(sizeof(t_list) * 2);
-	lst->content = "test";
-	lst->next->content = "ahaha";
-	while(lst)
+	count = 0;
+	hex = "0123456789abcdef";
+	if (nb > 15)
 	{
-		printf("%p", lst->content);
-		lst->next;
+		count += ft_hexlower(nb / 16);
+		count += ft_hexlower(nb % 16);
 	}
-}*/
+	else
+		count += ft_putchar(hex[nb]);
+	return (count);
+}

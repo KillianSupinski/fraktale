@@ -1,8 +1,9 @@
 NAME = fractol
-SOURCES = ft_fractol.c main.c
+SOURCES = main.c
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -MMD -MP
 OBJS = $(SOURCES:.c=.o)
+DEPS = $(SOURCES:.c=.d)
 LIBFT_PATH	= ./libft
 LIBFT		= $(LIBFT_PATH)/libft.a
 MLX_DIR		= ./libx
@@ -10,6 +11,8 @@ MLX_FLAGS	= -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm -lbsd
 MLX_MAKE	= $(MAKE) -C $(MLX_DIR)
 
 all: $(NAME)
+
+-include $(DEPS)
 
 $(NAME): $(OBJS)
 	$(MAKE) -C $(LIBFT_PATH)
@@ -20,7 +23,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) $(DEPS)
 	@$(MAKE) -C $(LIBFT_PATH) clean
 	@$(MAKE) -C $(MLX_DIR) clean
 

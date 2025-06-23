@@ -7,23 +7,20 @@ SOURCES = \
 	ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
 	ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
 	ft_putendl_fd.c ft_putnbr_fd.c \
-	
-BSOURCES = \
+	ft_putnbr.c ft_hexlower.c ft_hexupper.c ft_printf.c ft_printhex.c \
+	ft_putchar.c ft_putstr.c ft_putunsnbr.c \
 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c \
-	ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
-OBJECTS = $(SOURCES:.c=.o)
-BOBJECTS = $(BSOURCES:.c=.o)
+	ft_lstclear_bonus.c \
 
-CC = gcc
+OBJECTS = $(SOURCES:.c=.o)
+
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	$(AR) -r $@ $?
-
-bonus: $(OBJECTS) $(BOBJECTS)
-	$(AR) -r $(NAME) $?
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $?

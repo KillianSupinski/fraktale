@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   key.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 15:30:30 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/05/06 18:07:31 by ksupinsk         ###   ########.fr       */
+/*   Created: 2025/05/26 12:26:31 by ksupinsk          #+#    #+#             */
+/*   Updated: 2025/05/26 12:44:19 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef KEYS_H
+# define KEYS_H
+# define K_ESC		65307
+# define K_UP		65362
+# define K_LEFT		65361
+# define K_RIGHT	65363
+# define K_DOWN		65364
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	new->next = *lst;
-	*lst = new;
-}
+
+#endif

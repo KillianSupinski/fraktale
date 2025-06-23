@@ -6,25 +6,41 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 07:42:20 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/05/12 15:38:53 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/06/04 10:37:00 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strndup(const char *str, int nb)
+static	void	ft_free(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
+static char	*ft_strndup(const char *str, char c)
 {
 	int		i;
+	int		size;
 	char	*cpy;
 
 	i = 0;
-	cpy = malloc(sizeof(char) * (nb + 1));
+	size = 0;
+	while (str[size] != c && str[size])
+		size++;
+	cpy = malloc(sizeof(char) * (size + 1));
 	if (!cpy)
 		return (NULL);
-	while (i < nb)
+	while (str[i] != c && str[i])
 	{
-		cpy[i] = *str;
-		str++;
+		cpy[i] = str[i];
 		i++;
 	}
 	cpy[i] = '\0';
@@ -63,28 +79,25 @@ static char	**ft_fill(char *str, char **tab, char c)
 {
 	int		count;
 	int		i;
-	char	*start;
 
-	count = 0;
+	count = 1;
 	i = -1;
-	start = str;
 	while (*str != '\0')
 	{
 		if (*str == c)
+			count = 1;
+		else if (*str != '\0')
 		{
 			if (count == 1)
 			{
-				tab[++i] = ft_strndup(start, str - start);
+				tab[++i] = ft_strndup(str, c);
+				if (!tab[i])
+					return (ft_free(tab), NULL);
 				count = 0;
 			}
-			start = str + 1;
 		}
-		else if (*str != '\0')
-			count = 1;
 		str++;
 	}
-	if (count == 1)
-		tab[++i] = ft_strndup(start, str - start);
 	return ((tab[++i] = NULL), tab);
 }
 
@@ -113,7 +126,7 @@ int	main(void)
 	char	c;
 
 	c = ' ';
-	tab = ft_split(" le", ' ');
+	tab = ft_split(" le de of", ' ');
 	i = 0;
 	printf("tab1:\n");
 	while (tab[i])
