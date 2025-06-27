@@ -1,26 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fractol.c                                       :+:      :+:    :+:   */
+/*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 05:54:21 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/06/27 10:26:46 by ksupinsk         ###   ########.fr       */
+/*   Created: 2025/06/27 12:07:37 by ksupinsk          #+#    #+#             */
+/*   Updated: 2025/06/27 12:07:47 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
-
-void	ft_julia(char *str)
-{
-	if(!str)
-		return ;
-}
-
-void	ft_mandelbrot(char *str)
-{
-	if (!str)
-		return ;
-}
-

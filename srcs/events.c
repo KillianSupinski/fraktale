@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fractol.c                                       :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 05:54:21 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/06/27 10:26:46 by ksupinsk         ###   ########.fr       */
+/*   Created: 2025/06/27 09:32:07 by ksupinsk          #+#    #+#             */
+/*   Updated: 2025/06/28 01:28:32 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
 
-void	ft_julia(char *str)
+int	handle_keypress(int keysym, t_data *data)
 {
-	if(!str)
-		return ;
+	if (keysym == XK_Escape)
+	{
+		mlx_destroy_window(data->mlx, data->win);
+		data->win = NULL;
+		mlx_loop_end(data->mlx);
+	}
+	return (0);
 }
 
-void	ft_mandelbrot(char *str)
+int	handle_keyrelease(int keysym)
 {
-	if (!str)
-		return ;
+    printf("Keyrelease: %d\n", keysym);
+    return (0);
 }
-

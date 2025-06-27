@@ -10,7 +10,7 @@ SOURCES = \
 	ft_putnbr.c ft_hexlower.c ft_hexupper.c ft_printf.c ft_printhex.c \
 	ft_putchar.c ft_putstr.c ft_putunsnbr.c \
 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c \
-	ft_lstclear_bonus.c \
+	ft_lstclear_bonus.c ft_strcmp.c\
 
 OBJECTS = $(SOURCES:.c=.o)
 

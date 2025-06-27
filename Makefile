@@ -1,5 +1,6 @@
 NAME = fractol
-SOURCES = srcs/main.c
+SOURCES = srcs/main.c srcs/ft_fractol.c srcs/mlx_render.c srcs/color.c \
+		  srcs/events.c
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -MMD -MP
 OBJS = $(SOURCES:.c=.o)

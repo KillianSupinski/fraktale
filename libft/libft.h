@@ -6,7 +6,7 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 15:27:07 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/06/23 13:36:15 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/06/27 11:34:24 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 long	ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
+int		ft_strcmp(const char *s1, const char *s2);
 
 /* part 2 */
 char	*ft_substr(const char *s, unsigned int start, size_t len);
