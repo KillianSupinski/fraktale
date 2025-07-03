@@ -6,7 +6,7 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 09:32:07 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/06/28 01:28:32 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/06/30 08:57:03 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,4 @@ int	handle_keypress(int keysym, t_data *data)
 		mlx_loop_end(data->mlx);
 	}
 	return (0);
-}
-
-int	handle_keyrelease(int keysym)
-{
-    printf("Keyrelease: %d\n", keysym);
-    return (0);
 }

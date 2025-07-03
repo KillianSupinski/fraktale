@@ -6,7 +6,7 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 05:54:21 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/06/27 10:26:46 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:59:03 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,21 @@ void	ft_julia(char *str)
 		return ;
 }
 
-void	ft_mandelbrot(char *str)
+int	ft_mandelbrot(t_fractol *fract, t_complex *c)
 {
-	if (!str)
-		return ;
+	double		re_temp;
+    t_complex	z;
+    int			i;
+
+    i = -1;
+    z.r = 0;
+    z.i = 0;
+    while (sq(z) < 4 && ++i < fract->iteration)
+    {
+        re_temp = z.r * z.r - z.i * z.i + c->r;
+        z.i = 2 * z.r * z.i + c->i;
+        z.r = re_temp;
+    }
+    return (i);
 }
 
