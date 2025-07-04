@@ -6,7 +6,7 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 08:45:56 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/06/30 08:44:59 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/07/04 10:46:09 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,12 @@ int	main(int argc, char **argv)
 	t_data data;
 
 	data.win = NULL;
-	if(argc > 2 || argc == 1)
+	if (argc == 1)
 		ft_argerror();
 	if (argc == 2)
 		ft_check_arg(argv);
-	data.mlx = mlx_init();
-	if (data.mlx == NULL)
-		ft_error("mlx_init failed", &data);
-	data.win = mlx_new_window(data.mlx, SIZE, SIZE, "fract-ol");
-	if (data.win == NULL)
-		ft_error("mlx_new_window failed", &data);
+	init_mlx(&data, argv);
+	draw_fract(&data);
 	mlx_hook(data.win, KeyPress, KeyPressMask, &handle_keypress, &data);
 	mlx_loop(data.mlx);
 	mlx_destroy_display(data.mlx);

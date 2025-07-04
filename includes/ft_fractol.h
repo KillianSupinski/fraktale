@@ -6,7 +6,7 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 05:55:45 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/07/03 11:59:11 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/07/04 15:02:11 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@
 
 typedef struct s_img
 {
-	void	*mlx_img;
+	void	*ptr;
 	char	*addr;
 	int		bpp;
-	int		line_len;
-	int		endian;
+	int		l_len;
+	int		end;
 	int		color;
 }				t_img;
 
@@ -48,10 +48,10 @@ typedef struct s_complex
 typedef struct s_fractol
 {
 	char	*type;
-	int		y;
-	int		x;
-	int		width;
-	int		height;
+	int		ymax;
+	int		xmax;
+	int		ymin;
+	int		xmin;
 	int		color;
 	int		iteration;
 }				t_fractol;
@@ -74,5 +74,9 @@ void	render_background(t_img *img, int color);
 int		render(t_data *data);
 void	ft_error(char *msg, t_data *d);
 double	sq(t_complex z);
+void	draw_fract(t_data *data);
+void	init_mlx(t_data *data, char **argv);
+void	ft_check_arg(char **argv);
+void	ft_error(char *msg, t_data *d);
 
 #endif
