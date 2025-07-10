@@ -6,44 +6,15 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 08:45:56 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/07/04 10:46:09 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/07/10 14:31:54 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
 
-void	ft_error(char *msg, t_data *d)
-{
-	if (d->win)
-		mlx_destroy_window(d->mlx, d->win);
-	if (d->mlx)
-	{
-		mlx_destroy_display(d->mlx);
-		free(d->mlx);
-	}
-	ft_putstr_fd(msg, 2);
-	exit(1);
-}
-
-void	ft_argerror()
-{
-	ft_printf("Les parametres disponible sont:\n");
-	ft_printf("- mandelbrot\n- julia\n");
-	exit(1);
-}
-
-void	ft_check_arg(char **argv)
-{
-	if (ft_strcmp(argv[1], "julia") == 0)
-		return ;
-	else if (ft_strcmp(argv[1], "mandelbrot") == 0)
-		return ;
-	ft_argerror();
-}
-
 int	main(int argc, char **argv)
 {
-	t_data data;
+	t_data	data;
 
 	data.win = NULL;
 	if (argc == 1)
@@ -53,6 +24,7 @@ int	main(int argc, char **argv)
 	init_mlx(&data, argv);
 	draw_fract(&data);
 	mlx_hook(data.win, KeyPress, KeyPressMask, &handle_keypress, &data);
+	mlx_hook(data.win, 4, 1L<<2, mouse_hook, &data);
 	mlx_loop(data.mlx);
 	mlx_destroy_display(data.mlx);
 	free(data.mlx);

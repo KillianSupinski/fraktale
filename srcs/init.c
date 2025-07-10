@@ -6,11 +6,21 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 10:42:52 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/07/04 15:02:35 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/07/10 11:37:58 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
+
+void	init_fract(t_fractol *f, char **argv)
+{
+	f->xmin = -2.0;
+	f->xmax = 1;
+	f->ymin = -1.5;
+	f->ymax = 1.5;
+	f->type = argv[1];
+	f->iteration = 42;
+}
 
 void	init_mlx(t_data *d, char **argv)
 {
@@ -23,9 +33,9 @@ void	init_mlx(t_data *d, char **argv)
 	d->img.ptr = mlx_new_image(d->mlx, SIZE, SIZE);
 	if (!d->img.ptr)
 		ft_error("img failed", d);
-	d->img.addr = mlx_get_data_addr(d->img.ptr, d->img.bpp, d->img.l_len, d->img.end);
-	if(!d->img.addr)
+	d->img.addr = mlx_get_data_addr(d->img.ptr, &d->img.bpp, \
+								&d->img.l_len, &d->img.end);
+	if (!d->img.addr)
 		ft_error("addr failed", d);
-	d->fract.type = argv[1];
-	d->fract.iteration = 42;
+	init_fract(&d->fract, argv);
 }

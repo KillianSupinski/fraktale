@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fractol.c                                       :+:      :+:    :+:   */
+/*   zoom.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/24 05:54:21 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/07/10 11:38:56 by ksupinsk         ###   ########.fr       */
+/*   Created: 2025/07/10 13:58:51 by ksupinsk          #+#    #+#             */
+/*   Updated: 2025/07/10 15:20:39 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
 
-void	ft_julia(char *str)
+void	zoom_rect(t_fractol *f, t_complex centre, double factor)
 {
-	if (!str)
-		return ;
-}
+	double range_x;
+	double range_y;
 
-int	ft_mandelbrot(t_fractol *fract, t_complex *c)
-{
-	t_complex	z;
-	double		re_temp;
-	int			i;
+	range_x = (f->xmax - f->xmin) * factor;
+	range_y = range_x;
 
-	i = -1;
-	z = c_new(0, 0);
-	while (sq(z) < 4 && ++i < fract->iteration)
-	{
-		re_temp = z.r * z.r - z.i * z.i + c->r;
-		z.i = 2 * z.r * z.i + c->i;
-		z.r = re_temp;
-	}
-	return (i);
+	f->xmin = centre.r - half_w * 0.5;
+	f->xmax = centre.r + half_w * 0.5;
+	f->ymin = centre.i - half_h * 0.5;
+	f->ymax = centre.i + half_h * 0.5;
 }

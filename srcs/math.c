@@ -6,15 +6,24 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 12:07:37 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/07/04 10:24:30 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/07/10 11:39:40 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
 
+t_complex	c_new(double r, double i)
+{
+	t_complex	z;
+
+	z.r = r;
+	z.i = i;
+	return (z);
+}
+
 t_complex	c_mul(t_complex a, t_complex b)
 {
-	t_complex res;
+	t_complex	res;
 
 	res.r = a.r * b.r + a.i * b.i;
 	res.r = a.r * b.i + a.i * b.r;
