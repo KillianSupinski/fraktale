@@ -6,7 +6,7 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 12:07:37 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/07/10 11:39:40 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/07/16 16:17:29 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,6 @@ t_complex	c_new(double r, double i)
 	z.r = r;
 	z.i = i;
 	return (z);
-}
-
-t_complex	c_mul(t_complex a, t_complex b)
-{
-	t_complex	res;
-
-	res.r = a.r * b.r + a.i * b.i;
-	res.r = a.r * b.i + a.i * b.r;
-	return (res);
 }
 
 double	sq(t_complex z)

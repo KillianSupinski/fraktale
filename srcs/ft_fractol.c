@@ -6,16 +6,25 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 05:54:21 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/07/10 11:38:56 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/07/16 14:27:22 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_fractol.h"
 
-void	ft_julia(char *str)
+int	ft_julia(t_fractol *f, t_complex z)
 {
-	if (!str)
-		return ;
+	double		re_temp;
+	int			i;
+
+	i = -1;
+	while (sq(z) < 4 && ++i < f->iteration)
+	{
+		re_temp = z.r * z.r - z.i * z.i + f->cst.r;
+		z.i = 2 * z.r * z.i + f->cst.i;
+		z.r = re_temp;
+	}
+	return (i);
 }
 
 int	ft_mandelbrot(t_fractol *fract, t_complex *c)
