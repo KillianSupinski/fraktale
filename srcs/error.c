@@ -6,7 +6,7 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 11:27:04 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/07/16 17:23:03 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/07/27 17:43:35 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_check_julia(char *str)
 	double	i;
 
 	i = ft_atod(str);
-	if (i > 1 || i < -1)
+	if (i > 2 || i < -2)
 		return (1);
 	return (0);
 }

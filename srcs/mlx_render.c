@@ -6,7 +6,7 @@
 /*   By: ksupinsk <ksupinsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 10:07:20 by ksupinsk          #+#    #+#             */
-/*   Updated: 2025/07/16 12:06:25 by ksupinsk         ###   ########.fr       */
+/*   Updated: 2025/07/27 16:36:51 by ksupinsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int	calc_fract(t_fractol *fract, t_complex *c)
 	return (iter);
 }
 
-void	set_pixel(t_img *img, int x, int y, int rgb)
+void	set_pixel(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
 	if (x < 0 || y < 0 || x > SIZE || y > SIZE)
 		return ;
 	dst = img->addr + y * img->l_len + x * (img->bpp >> 3);
-	*(unsigned int *)dst = rgb;
+	*(unsigned int *)dst = color;
 }
 
 int	set_color(int iter, int max)
